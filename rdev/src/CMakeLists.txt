@@ -29,9 +29,9 @@ endif (WITH_PERF)
 
     add_library(rdev STATIC
         rdev_common.c
-	rdev_linux.c
+	rdev_libaio_linux.c
         ${RDEV_PERF_SOURCES})
-    target_link_libraries(rdev exa_os ${LIBPERF})
+    target_link_libraries(rdev exa_os ${LIBPERF} aio)
 
 else (NOT WIN32)
 
