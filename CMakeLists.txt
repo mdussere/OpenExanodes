@@ -125,6 +125,8 @@ set(WITH_TRACE          FALSE CACHE BOOL "Make the logs very verbose")
 
 set(PKG_NAME "exanodes")
 
+SET(CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}" CACHE PATH "" FORCE)
+
 if (WIN32)
     # The user will choose the directory at installation time
     set(CMAKE_INSTALL_PREFIX ""
