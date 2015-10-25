@@ -106,7 +106,7 @@ static int exa_daemonize(size_t stack, const char *name)
       memset(dummy, 0, stack);
 
       /* lock everything... */
-      if (mlockall(MCL_CURRENT|MCL_FUTURE))
+      if (getuid() == 0 && mlockall(MCL_CURRENT|MCL_FUTURE))
 	{
 	  ret = -errno;
           os_syslog(OS_SYSLOG_ERROR, "cannot lock: %m");
